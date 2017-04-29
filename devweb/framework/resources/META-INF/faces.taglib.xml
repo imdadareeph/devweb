@@ -1,0 +1,648 @@
+<?xml version="1.0"?>
+<facelet-taglib version="2.0"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facelettaglibrary_2_0.xsd"
+	id="s">
+	<namespace>http://com.is.faces/ui</namespace>
+	<tag>
+		<tag-name>gChart</tag-name>
+		<component>
+			<component-type>com.is.faces.GChart</component-type>
+			<renderer-type>com.is.faces.GChartRenderer</renderer-type>
+		</component>
+	</tag>
+	<tag>
+		<tag-name>analogClock</tag-name>
+		<component>
+			<component-type>com.is.faces.AnalogClock</component-type>
+			<renderer-type>com.is.faces.AnalogClockRenderer</renderer-type>
+		</component>
+		<attribute>
+			<description><![CDATA[Unique identifier of the component in a namingContainer.]]></description>
+			<name>id</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Boolean value to specify the rendering of the component, when set to false component will not be rendered.]]></description>
+			<name>rendered</name>
+			<required>false</required>
+			<type>java.lang.Boolean</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[An el expression referring to a server side UIComponent instance in a backing bean.]]></description>
+			<name>binding</name>
+			<required>false</required>
+			<type>javax.faces.component.UIComponent</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[theme of the analogClock. It can also be a ColorTheme object to set a custom theme]]></description>
+			<name>colorTheme</name>
+			<required>false</required>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Name of the client side widget.]]></description>
+			<name>widgetVar</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA['server' for using server time, use the client time otherwise]]></description>
+			<name>mode</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[time to display, the default value is current time]]></description>
+			<name>startTime</name>
+			<required>false</required>
+			<type>java.util.Date</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[width of the clock.]]></description>
+			<name>width</name>
+			<required>false</required>
+			<type>java.lang.Integer</type>
+		</attribute>
+	</tag>
+	<tag>
+		<tag-name>documentViewer</tag-name>
+		<component>
+			<component-type>com.is.faces.DocumentViewer</component-type>
+			<renderer-type>com.is.faces.DocumentViewerRenderer</renderer-type>
+		</component>
+		<attribute>
+			<description><![CDATA[Unique identifier of the component in a namingContainer.]]></description>
+			<name>id</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Boolean value to specify the rendering of the component, when set to false component will not be rendered.]]></description>
+			<name>rendered</name>
+			<required>false</required>
+			<type>java.lang.Boolean</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[An el expression referring to a server side UIComponent instance in a backing bean.]]></description>
+			<name>binding</name>
+			<required>false</required>
+			<type>javax.faces.component.UIComponent</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[width of the viewer frame.]]></description>
+			<name>width</name>
+			<required>false</required>
+			<type>java.lang.Integer</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[height of the viewer frame.]]></description>
+			<name>height</name>
+			<required>false</required>
+			<type>java.lang.Integer</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[CSS style of the viewer frame.]]></description>
+			<name>style</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[URL of the document to view.]]></description>
+			<name>url</name>
+			<required>true</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Controls browser caching mode of the resource. Default is false]]></description>
+			<name>cache</name>
+			<required>false</required>
+			<type>java.lang.Boolean</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[set true to use OmniFaces UnmappedResourceHandler. Default is false]]></description>
+			<name>unmapped</name>
+			<required>false</required>
+			<type>java.lang.Boolean</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Locale to be used for labels.]]></description>
+			<name>locale</name>
+			<required>false</required>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Start page of the document.]]></description>
+			<name>page</name>
+			<required>false</required>
+			<type>java.lang.Object</type>
+		</attribute>
+	</tag>
+	<tag>
+		<tag-name>gravatar</tag-name>
+		<component>
+			<component-type>com.is.faces.Gravatar</component-type>
+			<renderer-type>com.is.faces.GravatarRenderer</renderer-type>
+		</component>
+		<attribute>
+			<description><![CDATA[Unique identifier of the component in a namingContainer.]]></description>
+			<name>id</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Boolean value to specify the rendering of the component, when set to false component will not be rendered.]]></description>
+			<name>rendered</name>
+			<required>false</required>
+			<type>java.lang.Boolean</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[An el expression referring to a server side UIComponent instance in a backing bean.]]></description>
+			<name>binding</name>
+			<required>false</required>
+			<type>javax.faces.component.UIComponent</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[size of the image (1px up to 2048px)]]></description>
+			<name>size</name>
+			<required>false</required>
+			<type>java.lang.Integer</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[CSS style of the viewer frame.]]></description>
+			<name>style</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA['not found' icon]]></description>
+			<name>notFound</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[email of the chosen profile]]></description>
+			<name>value</name>
+			<required>true</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[use true to print a qrCode instead of the user photo]]></description>
+			<name>qrCode</name>
+			<required>false</required>
+			<type>java.lang.Boolean</type>
+		</attribute>
+	</tag>
+	<tag>
+		<tag-name>switch</tag-name>
+		<component>
+			<component-type>com.is.faces.Switch</component-type>
+			<renderer-type>com.is.faces.SwitchRenderer</renderer-type>
+		</component>
+		<attribute>
+			<description><![CDATA[Unique identifier of the component in a namingContainer.]]></description>
+			<name>id</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Boolean value to specify the rendering of the component, when set to false component will not be rendered.]]></description>
+			<name>rendered</name>
+			<required>false</required>
+			<type>java.lang.Boolean</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[An el expression referring to a server side UIComponent instance in a backing bean.]]></description>
+			<name>binding</name>
+			<required>false</required>
+			<type>javax.faces.component.UIComponent</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Value of the component.]]></description>
+			<name>value</name>
+			<required>false</required>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[An el expression or a literal text that defines a converter for the component. When it's an EL expression, it's resolved to a converter instance. 
+In case it's a static text, it must refer to a converter id.]]></description>
+			<name>converter</name>
+			<required>false</required>
+			<type>java.faces.convert.Converter</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[When set true, process validations logic is executed at apply request values phase for this component. Default is false.]]></description>
+			<name>immediate</name>
+			<required>false</required>
+			<type>java.lang.Boolean</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Marks component as required.]]></description>
+			<name>required</name>
+			<required>false</required>
+			<type>java.lang.Boolean</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[A method expression referring to a method validationg the input.]]></description>
+			<name>validator</name>
+			<required>false</required>
+			<type>javax.faces.validator.Validator</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[A method binding expression referring to a method for handling a valuchangeevent.]]></description>
+			<name>valueChangeListener</name>
+			<required>false</required>
+			<type>javax.faces.event.ValueChangeListener</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Message to display when required field validation fails.]]></description>
+			<name>requiredMessage</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Message to display when conversion fails.]]></description>
+			<name>converterMessage</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Message to display when validation fails.]]></description>
+			<name>validatorMessage</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Name of the client side widget.]]></description>
+			<name>widgetVar</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[switch type. It could be "rocker","arc","side","circle","rect","toggle"]]></description>
+			<name>type</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+	</tag>
+	<tag>
+		<tag-name>knob</tag-name>
+		<component>
+			<component-type>com.is.faces.Knob</component-type>
+			<renderer-type>com.is.faces.KnobRenderer</renderer-type>
+		</component>
+		<attribute>
+			<description><![CDATA[Unique identifier of the component in a namingContainer.]]></description>
+			<name>id</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Boolean value to specify the rendering of the component, when set to false component will not be rendered.]]></description>
+			<name>rendered</name>
+			<required>false</required>
+			<type>java.lang.Boolean</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[An el expression referring to a server side UIComponent instance in a backing bean.]]></description>
+			<name>binding</name>
+			<required>false</required>
+			<type>javax.faces.component.UIComponent</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Value of the component.]]></description>
+			<name>value</name>
+			<required>false</required>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[When set true, process validations logic is executed at apply request values phase for this component. Default is false.]]></description>
+			<name>immediate</name>
+			<required>false</required>
+			<type>java.lang.Boolean</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[A method expression referring to a method validationg the input.]]></description>
+			<name>validator</name>
+			<required>false</required>
+			<type>javax.faces.validator.Validator</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[A method binding expression referring to a method for handling a valuchangeevent.]]></description>
+			<name>valueChangeListener</name>
+			<required>false</required>
+			<type>javax.faces.event.ValueChangeListener</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Message to display when validation fails.]]></description>
+			<name>validatorMessage</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Name of the client side widget.]]></description>
+			<name>widgetVar</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[min valid value of the component]]></description>
+			<name>min</name>
+			<required>false</required>
+			<type>java.lang.Integer</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[max valid value of the component]]></description>
+			<name>max</name>
+			<required>false</required>
+			<type>java.lang.Integer</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[increment/decrement step of the component]]></description>
+			<name>step</name>
+			<required>false</required>
+			<type>java.lang.Integer</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[thickness of the bar]]></description>
+			<name>thickness</name>
+			<required>false</required>
+			<type>java.lang.Float</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Widht of the component]]></description>
+			<name>width</name>
+			<required>false</required>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Foreground color of the component, you can use an hex value, a css constant or a java.awt.Color object]]></description>
+			<name>foregroundColor</name>
+			<required>false</required>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Background color of the component, you can use an hex value, a css constant or a java.awt.Color object]]></description>
+			<name>backgroundColor</name>
+			<required>false</required>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Disables the input element, default is false.]]></description>
+			<name>disabled</name>
+			<required>false</required>
+			<type>boolean</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[set false to hide the label, default is true.]]></description>
+			<name>showLabel</name>
+			<required>false</required>
+			<type>boolean</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[set true to show only a cursor instead of the full bar, default is false.]]></description>
+			<name>cursor</name>
+			<required>false</required>
+			<type>boolean</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Template of the progress value e.g. "{value}%"]]></description>
+			<name>labelTemplate</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Client side callback to execute on state change.]]></description>
+			<name>onchange</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+	</tag>
+	
+	<!-- SLIDER START -->
+	<tag>
+		<tag-name>slider</tag-name>
+		<component>
+			<component-type>com.is.faces.rangeslider.Slider</component-type>
+			<renderer-type>com.is.faces.rangeslider.SliderRenderer</renderer-type>
+		</component>
+		<attribute>
+			<description><![CDATA[Unique identifier of the component in a namingContainer.]]></description>
+			<name>id</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Boolean value to specify the rendering of the component, when set to false component will not be rendered.]]></description>
+			<name>rendered</name>
+			<required>false</required>
+			<type>java.lang.Boolean</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[An el expression referring to a server side UIComponent instance in a backing bean.]]></description>
+			<name>binding</name>
+			<required>false</required>
+			<type>javax.faces.component.UIComponent</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Name of the client side widget.]]></description>
+			<name>widgetVar</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Id of the input text that the slider will be used for.]]></description>
+			<name>for</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Id of the component to display the slider value.]]></description>
+			<name>display</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Minimum value of the slider. Default is 0.]]></description>
+			<name>minValue</name>
+			<required>false</required>
+			<type>java.lang.Integer</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Maximum value of the slider. Default is 100.]]></description>
+			<name>maxValue</name>
+			<required>false</required>
+			<type>java.lang.Integer</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Inline style of the container element.]]></description>
+			<name>style</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Style class of the container element.]]></description>
+			<name>styleClass</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Boolean value to enable/disable the animated move when background of slider is clicked. Default is true.]]></description>
+			<name>animate</name>
+			<required>false</required>
+			<type>java.lang.Boolean</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Sets the type of the slider, "horizontal" or "vertical". Default is horizontal.]]></description>
+			<name>type</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Fixed pixel increments that the slider move in. Default is 1.]]></description>
+			<name>step</name>
+			<required>false</required>
+			<type>java.lang.Integer</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Disables or enables the slider.]]></description>
+			<name>disabled</name>
+			<required>false</required>
+			<type>java.lang.Boolean</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Client side callback to execute when slide begins.]]></description>
+			<name>onSlideStart</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Client side callback to execute during sliding.]]></description>
+			<name>onSlide</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Client side callback to execute when slide ends.]]></description>
+			<name>onSlideEnd</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[When enabled, two handles are provided for selecting a range.]]></description>
+			<name>range</name>
+			<required>false</required>
+			<type>java.lang.Boolean</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[String template to use when updating the display. Valid placeholders are {value}, {min} and {max}.]]></description>
+			<name>displayTemplate</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+	</tag>
+	<!-- SLIDER END -->
+	
+	<tag>
+		<tag-name>tooltip</tag-name>
+		<component>
+			<component-type>com.is.faces.tooltip.ToolTip</component-type>
+			<renderer-type>com.is.faces.tooltip.ToolTipRenderer</renderer-type>
+		</component>
+		<attribute>
+			<description><![CDATA[Unique identifier of the component in a namingContainer.]]></description>
+			<name>id</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Boolean value to specify the rendering of the component, when set to false component will not be rendered.]]></description>
+			<name>rendered</name>
+			<required>false</required>
+			<type>java.lang.Boolean</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[An el expression referring to a server side UIComponent instance in a backing bean.]]></description>
+			<name>binding</name>
+			<required>false</required>
+			<type>javax.faces.component.UIComponent</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Value of the component.]]></description>
+			<name>value</name>
+			<required>false</required>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[An el expression or a literal text that defines a converter for the component. When it's an EL expression, it's resolved to a converter instance. 
+    In case it's a static text, it must refer to a converter id.]]></description>
+			<name>converter</name>
+			<required>false</required>
+			<type>java.faces.convert.Converter</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Name of the client side widget.]]></description>
+			<name>widgetVar</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Id of the component to attach the tooltip.]]></description>
+			<name>for</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Inline style of the tooltip.]]></description>
+			<name>style</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Style class of the tooltip.]]></description>
+			<name>styleClass</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Client side callback to execute after tooltip is hidden.]]></description>
+			<name>onHide</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+		<attribute>
+			<description><![CDATA[Client side callback to execute after tooltip is shown.]]></description>
+			<name>onShow</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+	</tag>
+	<!-- ToolTip tag end -->	
+	<tag>
+        <tag-name>inputFile</tag-name>
+        <component>
+            <component-type>com.is.faces.inputfile.FileUploader</component-type>
+            <renderer-type>com.is.faces.inputfile.FileUploaderRenderer</renderer-type>
+        </component>
+    </tag>	
+    
+		    	<tag>
+		        <tag-name>calendarRange</tag-name>
+		        <component>
+		            <component-type>com.is.faces.calender.CalenderMy</component-type>
+		            <renderer-type>com.is.faces.calender.CalenderMyRenderer</renderer-type>
+		        </component>
+		    </tag>	
+		
+		<tag>
+        <tag-name>commandButton</tag-name>
+        <component>
+            <component-type>com.is.faces.commandbatton.MyCommandButton</component-type>
+            <renderer-type>com.is.faces.commandbatton.MyCommandButtonRenderer</renderer-type>
+        </component>
+    </tag>	
+		
+		
+		
+</facelet-taglib>
