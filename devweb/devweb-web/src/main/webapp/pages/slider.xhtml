@@ -1,0 +1,59 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" 
+	xmlns:s="http://com.is.faces/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>slider</title>
+	<style>
+	
+	[type='text'] {
+    
+    margin: 0 0 0rem !important;
+    }
+    /* .ui-state-default, .ui-widget-content .ui-state-default {
+    border: 1px solid #ff9a3e !important;
+    background: #ff9a3e !important;
+    width: 30px !important;
+    height: 30px !important;
+    border-radius: 15px !important;
+} */
+	</style>
+	<script>
+            $(function() {
+            	$(window).load(function(){  // should be  $(window).load to load widget
+                    $('#slider1').slider({
+                           step: 0.5
+                          });
+                });
+            });
+        </script>
+</h:head>
+<h:body>
+<script src="#{facesContext.externalContext.requestContextPath}/js/slider.js"></script>
+	<ui:include src="templates/header.xhtml"></ui:include>
+	<div class="contentstyle">
+	<p:messages id="messages"  autoUpdate="true" closable="true" />
+	<h:form prependId="false" id="formid">
+		
+	<h3 style="margin-top: 0">Input Text Slider</h3>
+    <!-- <h:panelGrid columns="1" style="margin-bottom: 10px;width:400px;border:0px"> -->
+        <p:inputText id="txt1" value="#{sliderBean.number1}" style="text-align:center;font-weight:bold;"/>
+         
+        <p:slider for="txt1" id="slider1" style="font-weight:bold;" step="2">
+        	<p:ajax event="slideEnd" listener="#{sliderBean.onSlideEnd()}" update="labelid" process="@form"/>
+        </p:slider>
+        <br/>
+        <p:panel id="displayValue">
+    	<p:outputLabel id="labelid" value="#{sliderBean.number1}" style="font-weight:bold;width:300px;text-align:center;"></p:outputLabel>
+    </p:panel>
+   <!--  </h:panelGrid> -->
+    
+    
+    
+			
+	</h:form>
+	</div>
+</h:body>
+</html>

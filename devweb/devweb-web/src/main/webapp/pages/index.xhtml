@@ -1,0 +1,136 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+		xmlns:s="http://com.is.faces/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>Welcome to Devweb</title>
+</h:head>
+<h:body>
+
+<script src="#{facesContext.externalContext.requestContextPath}/js/moment.js"></script>
+<script src="#{facesContext.externalContext.requestContextPath}/js/daterangepicker.js"></script>
+	<link rel="stylesheet"
+			href="#{facesContext.externalContext.requestContextPath}/css/daterangepicker.css"
+			type="text/css" />
+	<ui:include src="templates/header.xhtml"></ui:include>
+	<div class="contentstyle">
+	<p:messages id="messages"  autoUpdate="true" closable="true" />
+		<h:form id="form1">
+
+
+			<h:panelGrid columns="1" cellpadding="5">
+
+				<p:commandButton value="Add" type="button" onclick="PF('dlg2').show();" />
+
+			</h:panelGrid>
+
+
+
+			<p:dialog header="Modal Dialog" widgetVar="dlg2" modal="true" height="300" width="600">
+				<table>
+					<tr>
+						<td><h:outputLabel for="id" value="Id : " /></td>
+						<td><p:inputText id="id" value="#{entityBBean.id}" disabled="true">
+								<f:converter converterId="javax.faces.Integer" />
+								<p:ajax event="blur" update="messages" />
+							</p:inputText></td>
+					</tr>
+					<tr>
+						<td><h:outputLabel for="attribute" value="Attribute : " /></td>
+						<td><p:inputText id="attribute" value="#{entityBBean.attribute}">
+								<f:validateLength minimum="5" />
+								<p:ajax event="blur" update="messages" />
+							</p:inputText></td>
+					</tr>
+					<tr>
+						<td><p:commandButton id="addUser" value="Add" actionListener="#{entityBBean.addEntity}" ajax="false" update=":entities" /></td>
+						<td><p:commandButton id="reset" value="Reset" actionListener="#{entityBBean.reset}" ajax="false" /></td>
+					</tr>
+				</table>
+			</p:dialog>
+
+			
+		
+		Elements:
+		
+		<p:dataTable id="entities" var="entity" value="#{entityBBean.entityList}" style="width: 50%" editable="true">
+
+				<p:ajax event="rowEdit" listener="#{entityBBean.onRowEdit}" update=":form1:entities:modelcconName " />
+
+				<p:column headerText="ID">
+					<h:outputText value="#{entity.id}" />
+				</p:column>
+				<p:column headerText="NAME1">
+
+					<p:cellEditor>
+						<f:facet name="output">
+							<h:outputText value="#{entity.attribute}" style="text-transform: uppercase" />
+						</f:facet>
+						<f:facet name="input">
+							<p:inputText id="modelcconName" value="#{entity.attribute}" size="10" style="width:300px;text-transform: uppercase" required="true" />
+
+						</f:facet>
+					</p:cellEditor>
+
+
+				</p:column>
+
+
+				<p:column headerText="Action" style="width:100px">
+					<p:rowEditor />
+				</p:column>
+
+				<p:column headerText="delete" style="width:100px">
+					<p:commandButton value="Delete" id="ajax" actionListener="#{entityBBean.deleteAction(entity)}" styleClass="ui-priority-primary"
+						update=":form1:entities"></p:commandButton>
+				</p:column>
+
+
+			</p:dataTable>
+
+
+
+			<p:panel id="RGB" header="RGB" style="margin-bottom:20px;margin-top:20px;width: 50%">
+				<p:outputLabel value="R" />
+				<p:inputText id="txt1" value="#{sliderBean.number1}" style="text-align:center;font-weight:bold;" rendered="false" />
+
+				<s:slider for="txt1" style="width: 50%" minValue="0" maxValue="255">
+					<p:ajax event="slideEnd" listener="#{sliderBean.onSlideEndR}" process="@form" update=":form1:txt4,:form1:txt1" />
+				</s:slider>
+
+
+				<p:outputLabel value="G" />
+				<p:inputText id="txt2" value="#{sliderBean.number2}" style="text-align:center;font-weight:bold;" rendered="false" />
+
+				<s:slider for="txt2" style="width: 50%" minValue="0" maxValue="255">
+					<p:ajax event="slideEnd" listener="#{sliderBean.onSlideEndG}" process="@form" update=":form1:txt4" />
+				</s:slider>
+
+
+				<p:outputLabel value="B" />
+				<p:inputText id="txt3" value="#{sliderBean.number3}" style="text-align:center;font-weight:bold;" rendered="false" />
+				<s:slider for="txt3" style="width: 50%" minValue="0" maxValue="255">
+					<p:ajax event="slideEnd" listener="#{sliderBean.onSlideEndB}" process="@form" update=":form1:txt4" />
+				</s:slider>
+				<p:outputLabel value="RGB code"  />
+				<p:inputText id="txt4" value="#{sliderBean.number4}" style="text-align:center;font-weight:bold; margin-top:20px" />
+			</p:panel>
+
+<!-- <input type="text" name="daterange" value="01/01/2015 - 01/31/2015" />
+
+<script type="text/javascript">
+$( document ).ready(function() {
+    $('input[name="daterange"]').daterangepicker();
+});
+
+</script> -->
+<p:commandButton value="Non-Ajax Submit" id="nonAjax1" actionListener="#{sliderBean.addButtonAction}" style="display: none;										" rendered="true" ajax="true"  process=":form1:cal,@this" update=":form1:cal"></p:commandButton>
+<s:calendarRange id="cal" value="#{sliderBean.calendrValueRange}">
+
+</s:calendarRange>
+		</h:form>
+	</div>
+</h:body>
+</html>

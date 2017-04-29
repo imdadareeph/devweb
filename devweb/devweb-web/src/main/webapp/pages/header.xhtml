@@ -1,0 +1,85 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core">
+	<h:head>
+		<f:facet name="first">
+			<meta http-equiv="X-UA-Compatible" content="IE=9" />
+			<meta http-equiv="Content-Type"
+				content="text/html; charset=ISO-8859-1" />
+			<title>app</title>
+		</f:facet>
+		<style>
+.ui-helper-clearfix {
+	display: block;
+}
+
+body{
+	margin:0px !important;
+}
+
+.ui-widget-header {
+	border: 0px !important;
+}
+
+.ui-tabmenu .ui-tabmenu-nav {
+	margin: 0;
+	padding: .0em .0em 0 !important;
+}
+
+.ui-corner-all.head {
+	-moz-border-radius: 0px !important;
+	-webkit-border-radius: 0px !important;
+	border-radius: 0px !important;
+}
+
+ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem {
+top: 0px !important;
+}
+</style>
+		<link rel="stylesheet"
+			href="#{facesContext.externalContext.requestContextPath}/css/primefacescssoverridden.css"
+			type="text/css" />
+		<link rel="stylesheet"
+			href="#{facesContext.externalContext.requestContextPath}/css/app.css"
+			type="text/css" />	
+			<link rel="stylesheet"
+			href="#{facesContext.externalContext.requestContextPath}/css/daterangepicker.css"
+			type="text/css" />
+		<link rel="stylesheet"
+			href="#{facesContext.externalContext.requestContextPath}/css/fa/css/font-awesome.css"
+			type="text/css" />		
+		<!-- <link rel="stylesheet"
+			href="#{facesContext.externalContext.requestContextPath}/css/foundation.css"
+			type="text/css" /> -->
+		
+		<!-- <h:outputScript name="js/foundation.min.js" /> -->
+		<link rel="stylesheet"
+			href="#{facesContext.externalContext.requestContextPath}/css/font-awesome.css"
+			type="text/css" />	
+		 
+	</h:head>
+	<h:body>
+	<table width="100%" class="ui-widget ui-widget-content" border="0"> 
+
+		<tr>
+			<td align="center" width="100%" style="margin-left: 250px;"><img
+				src="#{facesContext.externalContext.requestContextPath}/img/banner1.jpg"
+				height="130px" width="100%"/></td>
+			
+		</tr>
+	</table>
+	<h:form>
+	<p:tabMenu activeIndex="#{param.i}" styleClass="head">
+		<p:menuitem  value="Home"  style="float:right;" outcome="#{navigationBean.navigateTo}"
+			icon="ui-icon-home">
+			<f:param name="i" value="0" />
+		</p:menuitem>
+		
+	</p:tabMenu>
+	
+	</h:form>
+	</h:body>
+</ui:composition>

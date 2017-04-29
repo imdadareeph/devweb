@@ -1,0 +1,86 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>Welcome to devweb</title>
+</h:head>
+<h:body>
+	<ui:include src="header.xhtml"></ui:include>
+	<div class="contentstyle">
+	<p:messages id="messages"  autoUpdate="true" closable="true" />
+	<h:form id="form1" >
+		
+
+			<h:panelGrid columns="1" cellpadding="5">
+				
+				<p:commandButton value="Add" type="button"
+					onclick="PF('dlg2').show();" />
+
+			</h:panelGrid>
+
+
+
+			<p:dialog header="Modal Dialog" widgetVar="dlg2" modal="true" height="300" width="600">
+				<table>
+					<tr>
+						<td><h:outputLabel for="id" value="Id : " /></td>
+						<td><p:inputText id="id" value="#{entityBBean.id}" disabled="true">
+								<f:converter converterId="javax.faces.Integer" />
+								<p:ajax event="blur" update="messages" />
+							</p:inputText></td>
+					</tr>
+					<tr>
+						<td><h:outputLabel for="attribute" value="Attribute : " /></td>
+						<td><p:inputText id="attribute" value="#{entityBBean.attribute}">
+								<f:validateLength minimum="5" />
+								<p:ajax event="blur" update="messages" />
+							</p:inputText></td>
+					</tr>
+					<tr>
+						<td><p:commandButton id="addUser" value="Add" actionListener="#{entityBBean.addEntity}" ajax="false" /></td>
+						<td><p:commandButton id="reset" value="Reset" actionListener="#{entityBBean.reset}" ajax="false" /></td>
+					</tr>
+				</table>
+			</p:dialog>
+
+			
+		
+		Elements:
+		
+		<p:dataTable id="entities" var="entity" value="#{entityBBean.entityList}" style="width: 50%" editable="true" >
+
+				<p:ajax event="rowEdit" listener="#{entityBBean.onRowEdit}" update=":form1:entities:modelcconName " />
+
+				<p:column headerText="ID">
+					<f:fascet name="header">
+						<h:outputText value="ID" />
+					</f:facet>
+					<h:outputText value="#{entity.id}" />
+				</p:column>
+				<p:column headerText="NAME1">
+
+					<p:cellEditor>
+						<f:facet name="output">
+							<h:outputText value="#{entity.attribute}" style="text-transform: uppercase" />
+						</f:facet>
+						<f:facet name="input">
+							<p:inputText id="modelcconName" value="#{entity.attribute}" size="10" style="width:300px;text-transform: uppercase" required="true"  />
+
+						</f:facet>
+					</p:cellEditor>
+
+
+				</p:column>
+
+
+				<p:column headerText="Action" style="width:100px">
+					<p:rowEditor />
+				</p:column>
+
+			</p:dataTable>
+		</h:form>
+	</div>
+</h:body>
+</html>

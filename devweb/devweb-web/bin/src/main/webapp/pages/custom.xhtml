@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" 
+	xmlns:s="http://com.is.faces/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>Welcome to web</title>
+</h:head>
+<h:body>
+	<ui:include src="header.xhtml"></ui:include>
+	<div class="contentstyle">
+		<p:messages id="messages" autoUpdate="true" closable="true" />
+		<h:form prependId="false">
+		<h:inputHidden id="count" value="#{clockBean.number}" />
+		<p:panel id="pollid">
+			<p:poll interval="100" listener="#{clockBean.increment}" update="count" />
+			<p:panelGrid columns="4">
+				<h:panelGroup>
+					<h1>Rome</h1>
+					<s:analogClock startTime="#{clockBean.romeTime}" width="250"
+						mode="server" />
+				</h:panelGroup>
+				<h:panelGroup>
+					<h1>London</h1>
+					<s:analogClock startTime="#{clockBean.londonTime}" width="250"
+						mode="server" />
+				</h:panelGroup>
+				<h:panelGroup>
+					<h1>New York</h1>
+					<s:analogClock startTime="#{clockBean.newYorkTime}" width="250"
+						mode="server" />
+				</h:panelGroup>
+				<h:panelGroup>
+					<h1>You</h1>
+					<s:analogClock width="250" />
+				</h:panelGroup>
+			</p:panelGrid>
+		</p:panel>
+		</h:form>
+	</div>
+</h:body>
+</html>
